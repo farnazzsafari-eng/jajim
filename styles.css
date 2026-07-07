@@ -65,6 +65,7 @@ a { color: inherit; text-decoration: none; }
 .cover {
   position: relative;
   height: 100vh;
+  height: 100svh;
   width: 100%;
   background: #1a1a1a url('cover-home.png') center / cover no-repeat;
 }
@@ -505,12 +506,24 @@ a { color: inherit; text-decoration: none; }
   color: #7c7c7c;
 }
 
+/* Mid-size screens: shrink the hover collage so tiles don't swallow the page */
+@media (max-width: 1100px) {
+  .reveal-tile.tr { width: 50vw; height: 40vh; }
+  .reveal-tile.bl { width: 44vw; height: 36vh; }
+  .reveal-tile.bc { left: 52vw; width: 44vw; height: 38vh; }
+  .reveal-tile.tl { width: 44vw; height: 34vh; }
+  .reveal-tile.mr { top: 30vh; width: 44vw; height: 36vh; }
+  .reveal-caption { font-size: 24px; }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 760px) {
   .brand { font-size: 16px; }
   .corner { font-size: 11px; }
   .cover-side, .cover-issue { display: none; }
   .dot { font-size: 12px; }
+  /* No hover on touch — hide the reveal collage; tapping a dot navigates */
+  .reveal-layer, .reveal-grid { display: none; }
   .chapter { padding: 12vh 6vw 14vh; }
   .chapter-title { top: 38vh; }
   .cards { gap: 18vh; }

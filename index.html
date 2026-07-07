@@ -137,15 +137,27 @@
       cover.classList.remove('revealing');
     }
 
+    // Touch devices have no hover: first tap previews, second tap opens.
+    const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches
+                    || new URLSearchParams(location.search).has('touch');
+
     document.querySelectorAll('.dot').forEach(btn => {
       const key = btn.dataset.target;
-      btn.addEventListener('mouseenter', () => show(key));
-      btn.addEventListener('focus',      () => show(key));
+      if (!isTouch) {
+        btn.addEventListener('mouseenter', () => show(key));
+        btn.addEventListener('focus',      () => show(key));
+      }
       btn.addEventListener('click', () => {
+        if (isTouch && active !== key) { show(key); return; }
         location.href = 'category.html?cat=' + key;
       });
     });
     cover.addEventListener('mouseleave', hide);
+    if (isTouch) {
+      cover.addEventListener('click', e => {
+        if (!e.target.closest('.dot')) hide();
+      });
+    }
   </script>
 
 </body>

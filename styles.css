@@ -522,8 +522,14 @@ a { color: inherit; text-decoration: none; }
   .corner { font-size: 11px; }
   .cover-side, .cover-issue { display: none; }
   .dot { font-size: 12px; }
-  /* No hover on touch — hide the reveal collage; tapping a dot navigates */
-  .reveal-layer, .reveal-grid { display: none; }
+  /* Touch: first tap previews, second tap opens. Compact tile layout. */
+  .reveal-grid { display: none; }
+  .reveal-tile.tr { top: 0;    right: 0;  width: 62vw; height: 26vh; }
+  .reveal-tile.tl { top: 0;    left: 0;   width: 62vw; height: 24vh; }
+  .reveal-tile.mr { top: 26vh; right: 0;  width: 56vw; height: 24vh; }
+  .reveal-tile.bl { bottom: 0; left: 0;   width: 62vw; height: 26vh; }
+  .reveal-tile.bc { left: auto; right: 0; bottom: 0; width: 56vw; height: 24vh; }
+  .reveal-caption { font-size: 20px; padding: 4px 12px; }
   .chapter { padding: 12vh 6vw 14vh; }
   .chapter-title { top: 38vh; }
   .cards { gap: 18vh; }

@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jajim",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-I", "-c", "import http.server,socketserver,functools;h=functools.partial(http.server.SimpleHTTPRequestHandler,directory='/Users/farnazsafari/Desktop/jajim');socketserver.TCPServer(('',8722),h).serve_forever()"],
+      "port": 8722,
+      "autoPort": false
+    },
+    {
+      "name": "jajim-tmp",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-I", "-c", "import http.server,socketserver,functools;h=functools.partial(http.server.SimpleHTTPRequestHandler,directory='/tmp/jajim-preview');socketserver.TCPServer(('',8723),h).serve_forever()"],
+      "port": 8723,
+      "autoPort": false
+    }
+  ]
+}

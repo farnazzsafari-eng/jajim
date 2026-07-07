@@ -83,7 +83,8 @@
           media = document.createElement('video');
           media.src = src;
           media.muted = true; media.loop = true;
-          media.autoplay = true; media.playsInline = true;
+          media.playsInline = true;
+          media.preload = 'none';   // fetch only on first hover, not on page load
           media.setAttribute('muted', '');
           media.setAttribute('playsinline', '');
         } else {
